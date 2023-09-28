@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QM Rates Calculator</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula el archivo CSS -->
+    <style>
+        /* Establece el fondo blanco */
+        body {
+            background-color: #FFFFFF; /* Fondo blanco */
+        }
+
+        /* Estilo para la imagen */
+        #imagen3 {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 200px; /* Ajusta el ancho de la imagen según sea necesario */
+        }
+    </style>
+</head>
+<body>
+    <h1>QM Rates Calculator</h1>
+    
+    <form method="POST" action="/calculate">
+        <label for="hours_worked">1) Hours Worked (NO Break): </label>
+        <input type="text" name="hours_worked" id="hours_worked"><br>
+
+        <label for="hours_knocking">2) Hours Knocking: </label>
+        <input type="text" name="hours_knocking" id="hours_knocking"><br>
+
+        <label for="doors">3) How many doors?: </label>
+        <input type="text" name="doors" id="doors"><br>
+
+        <label for="eligible_interactions">4) How many Eligible Interactions?: </label>
+        <input type="text" name="eligible_interactions" id="eligible_interactions"><br>
+
+        <label for="hops">5) How many HOPs?: </label>
+        <input type="text" name="hops" id="hops"><br>
+
+        <label for="ref_properties">6) How many 1 Ref Properties?: </label>
+        <input type="text" name="ref_properties" id="ref_properties"><br>
+
+        <label for="sign_ups">7) How many Sign Ups?: </label>
+        <input type="text" name="sign_ups" id="sign_ups"><br>
+
+        <input type="submit" value="KNOCK KNOCK">
+    </form>
+
+    <p>Rates:</p>
+    <p>A) Interaction Rate: <span id="interaction_rate"></span></p>
+    <p>B) Absolute HOP Rate: <span id="absolute_hop_rate"></span></p>
+    <p>C) Absolute Sign up rate: <span id="absolute_sign_up_rate"></span></p>
+    <p>D) Sign up/ Hour: <span id="sign_up_per_hour"></span></p>
+    <p>E) Good Ref: <span id="good_ref"></span></p>
+    <p>F) Sign Up rate: <span id="sign_up_rate"></span></p>
+
+    <!-- Agrega la imagen debajo y a la derecha de todo el contenido -->
+    <img src="CNTOWER.GIF" alt="Imagen 3" id="imagen3">
+    
+    <script>
+        // Agrega aquí tu código JavaScript para calcular los resultados y actualizar los valores en la página
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Evita que se recargue la página
+
+            // Obtiene los valores ingresados por el usuario
+            var hours_worked = parseFloat(document.getElementById('hours_worked').value);
+            var hours_knocking = parseFloat(document.getElementById('hours_knocking').value);
+            var doors = parseFloat(document.getElementById('doors').value);
+            var eligible_interactions = parseFloat(document.getElementById('eligible_interactions').value);
+            var hops = parseFloat(document.getElementById('hops').value);
+            var ref_properties = parseFloat(document.getElementById('ref_properties').value);
+            var sign_ups = parseFloat(document.getElementById('sign_ups').value);
+
+            // Realiza los cálculos
+            var interaction_rate = (eligible_interactions / doors) * 100;
+            var absolute_hop_rate = (hops / doors) * 100;
+            var absolute_sign_up_rate = ((hops + ref_properties + sign_ups) / doors) * 100;
+            var sign_up_per_hour = (hops + ref_properties + sign_ups) / hours_knocking;
+            var good_ref = (hops * 2) + ref_properties;
+            var sign_up_rate = (hops + ref_properties + sign_ups) / eligible_interactions;
+
+            // Actualiza los valores en la página
+            document.getElementById('interaction_rate').textContent = interaction_rate.toFixed(2) + "%";
+            document.getElementById('absolute_hop_rate').textContent = absolute_hop_rate.toFixed(2) + "%";
+            document.getElementById('absolute_sign_up_rate').textContent = absolute_sign_up_rate.toFixed(2) + "%";
+            document.getElementById('sign_up_per_hour').textContent = sign_up_per_hour.toFixed(2);
+            document.getElementById('good_ref').textContent = good_ref.toFixed(2);
+            document.getElementById('sign_up_rate').textContent = sign_up_rate.toFixed(2);
+        });
+    </script>
+</body>
+</html>

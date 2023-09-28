@@ -1,0 +1,66 @@
+/* Establece el fondo blanco con un toque de verde agua */
+body {
+    background-color: #F5F5F5; /* Fondo blanco */
+    background-image: none; /* Elimina la imagen de fondo */
+    color: #50C878; /* Letras en verde agua */
+    font-weight: bold; /* Texto en negrita */
+    border: none; /* Elimina el borde */
+}
+
+/* Estilo para el título */
+h1 {
+    font-size: 36px; /* Tamaño de fuente grande */
+    text-align: center; /* Centra el texto */
+    padding: 20px 0; /* Espaciado interior arriba y abajo */
+    font-family: 'LFT Arnoldo Semibold', sans-serif; /* Utiliza la fuente LFT Arnoldo Semibold */
+    color: #50C878; /* Color verde agua */
+}
+
+/* Estilo para los demás elementos */
+label, p, span {
+    font-family: 'LFT Arnoldo Semibold', sans-serif; /* Utiliza la fuente LFT Arnoldo Semibold */
+    color: inherit; /* Hereda el color de texto */
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"] {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Elimina el borde */
+    font-family: 'LFT Arnoldo Semibold', sans-serif; /* Utiliza la fuente LFT Arnoldo Semibold */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-right: 10px; /* Espacio entre los campos de entrada */
+    text-align: center; /* Alinea el texto al centro */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    border-bottom: none; /* Elimina el borde inferior */
+    display: inline-block; /* Hace que los campos estén en línea */
+    vertical-align: middle; /* Alinea verticalmente en el medio */
+    color: inherit; /* Hereda el color de texto */
+}
+
+/* Estilo para el botón "Knock Knock" */
+input[type="submit"] {
+    background-color: #50C878; /* Fondo verde agua */
+    color: #ffffff; /* Letras en blanco */
+    border: none; /* Elimina el borde */
+    padding: 10px 20px; /* Espaciado interior */
+    font-family: 'LFT Arnoldo Semibold', sans-serif; /* Utiliza la fuente LFT Arnoldo Semibold */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Letras en negrita */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por el botón */
+    transition: background-color 0.3s; /* Transición de color de fondo */
+    margin-top: 20px; /* Espacio en la parte superior del botón */
+}
+
+/* Cambia el color del botón al hacer clic */
+input[type="submit"]:active {
+    background-color: #007FFF; /* Cambia a azul al hacer clic */
+}
+
+/* Estilo para la imagen 3 */
+#imagen3 {
+    position: absolute;
+    transform: scale(3); /* Hacer la imagen 400% más grande */
+    bottom: 50%; /* Centrar verticalmente */
+    right: 10px; /* Alinear a la derecha */
+    transform-origin: bottom right; /* Establecer el punto de transformación en la esquina inferior derecha */
+}
